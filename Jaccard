@@ -1,0 +1,19 @@
+from keras import backend as K
+from keras import losses
+import numpy as np
+import tensorflow as tf
+def Jaccard_Loss(y_true, y_pred):
+    y_true = K.flatten(y_true)
+    y_pred = K.flatten(y_pred)
+
+    y_true_expand = K.expand_dims(y_true, axis=0)
+    y_pred_expand = K.expand_dims(y_pred, axis=-1)
+
+    fenzi = K.dot(y_true_expand, y_pred_expand)
+
+    fenmu_1 = K.sum(y_true, keepdims=True)
+
+    fenmu_2 = K.ones_like(y_true_expand) - y_true_expand
+    fenmu_2 = K.dot(fenmu_2, y_pred_expand)
+
+    return K.mean((tf.constant([[1]], dtype=tf.float32) - (fenzi / (fenmu_1 + fenmu_2))), axis=-1)
