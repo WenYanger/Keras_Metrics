@@ -9,6 +9,28 @@ Now Including:
 - Dice Similarity Coefficient (aka. DSC)
 
 ----
+# How to use
+
+Just an example ~ 
+```
+inp = Input(shape=(timesteps, 1))
+gru = Bidirectional(GRU(500, return_sequences=True))(inp)
+
+max1 = GlobalMaxPool1D()(gru_1)
+att1 = Attention()(gru_1)
+cont1 = keras.layers.concatenate([max1, att1])
+
+out = Dense(1, activation='relu')(cont1)
+
+opt = keras.optimizers.Adam(lr=0.002, beta_1=0.9, beta_2=0.9, epsilon=1e-08, amsgrad=True)
+
+model = Model(inputs=inp, outputs=out)
+model.compile(loss='mse',
+              optimizer=opt,
+              metrics=['mse', pearson_r, mre])
+```
+
+----
 
 # Relative Formula
 - Pearsons Correlation Coefficient
