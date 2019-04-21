@@ -32,7 +32,7 @@ model.compile(loss='mse',
 
 ----
 
-# Relative Formula
+# Related Formula
 - Pearsons Correlation Coefficient
 > ![这里写图片描述](https://www.zhihu.com/equation?tex=%5Crho%28X%2CY%29%3D%5Cfrac%7BE%5B%28X-%5Cmu_%7BX%7D%29%28Y-%5Cmu_%7BY%7D%29%5D%7D%7B%5Csigma_X%5Csigma_Y%7D+%3D%5Cfrac%7BE%5B%28X-%5Cmu_%7BX%7D%29%28Y-%5Cmu_%7BY%7D%29%5D%7D%7B%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%28X_i-%5Cmu_X%29%5E2%7D%7D%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%28Y_i-%5Cmu_Y%29%5E2%7D%7D%7D)
 
